@@ -1,0 +1,798 @@
+body {
+    font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+header {
+    position: fixed;
+    top: 0; 
+   background-color: #333333; /*  rgba(0, 0, 0, 0);  had to use js to change bg on scroll*/
+    width: 100%;
+    display: block; 
+    z-index: 999; /* to show over slider overlay -> 1st section */
+
+}
+.container{
+    margin: auto;
+    padding: 10px;
+}
+
+
+.container .inner-container{
+    overflow: hidden;
+
+}
+
+
+.container .inner-container .logo {
+    width: 25%;
+    float: left;
+}
+
+.container .inner-container .logo a {
+    color: #ff305b;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 18px 0;
+
+}
+
+.container .inner-container .navbar {   
+    width: 75%;
+    float: right;
+    
+}
+
+.container .inner-container .navbar ul {
+    float: right;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+}
+
+.container .inner-container .navbar ul li {
+    display: inline-block;
+    padding: 5px 10px;
+
+    
+}
+.container .inner-container .navbar ul li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    padding: 20px 0;
+    line-height: 20px;
+    transition: all 0.4s ease-in-out 0s;
+    
+}
+
+
+/* end header */
+
+.slider-hero{
+    background-image: url(img/slider/slider-01.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position:relative;
+    text-align:center;
+
+}
+
+
+.slider-hero .slider-overlay{
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8) ;
+ 
+}
+.slider-hero .slider-desc {
+    position: absolute; /*had to add position to apply z-index -> text show over the added overlay*/
+    /*z-index: 1;*/
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+ 
+}
+
+.slider-hero .slider-desc h1 {
+  
+        color: #ff305b;
+        font-size: 70px;
+        font-weight: bold;
+        text-transform: uppercase;
+    
+}
+ /* end slider */
+
+.profile {
+    overflow: hidden;
+    padding: 100px 100px 125px;
+    margin: auto;
+}
+
+.profile-image-section {
+    border-radius: 8px;
+    box-shadow: 0 0 0 8px #555555 inset;
+    float: left; 
+    position: relative;
+    max-width: 30%;
+
+    
+}
+
+.profile .profile-image-section .profile-image {
+   
+   /* same result, should we prefer one?*/
+   /*top: 20px; left: 20px;*/
+   transform: translateY(24px) translateX(24px);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile .profile-image-section .profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.profile .profile-image-section .profile-image:hover .profile-overly{
+    top: 0;
+}
+
+.profile .profile-image-section .profile-image .profile-overly {
+    background: rgba(0, 0, 0, 0.57);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 100%; /* works fine without it as its html already under image tag, had to but it so that the transition works (100-0) instead of (unknown - 0) in 0.5sec*/
+    transition: top 0.5s 0s ease ;
+    border-radius: 8px;
+
+   
+}
+
+/* list style work fine with ul or li */
+.profile .profile-image-section .profile-image .profile-overly .social-icon ul   {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+
+}
+
+.profile .profile-image-section .profile-image .profile-overly .social-icon ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+}
+
+.profile .profile-image-section .profile-image .profile-overly .social-icon ul li a i  {
+    color:#fff;
+    list-style: none;
+
+}
+.profile .profile-image-section .profile-image .profile-overly .social-icon ul li:hover a i {
+    color: #ff305b;
+}
+
+.profile .profile-data{
+    float: left;
+    /* width: calc(50% - 70px); */
+    max-width: calc(70% - 70px);
+    text-align: left; 
+    padding-left: 70px;
+    margin: auto;
+
+}
+
+.profile .profile-data h2 {
+        font-size: 34px;
+        padding-left: 10px;
+        text-transform: uppercase;
+        border-left: 5px solid #FF305B;
+        line-height: 30px;
+}
+
+.profile .profile-data p {
+    border-bottom: 1px dashed #999999;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    font-weight: 700;
+}
+
+.profile .profile-data .profile-about ul {
+    overflow: hidden;
+}
+.profile .profile-data .profile-about ul li {
+    width: 50%;
+    list-style: none;
+    float: left;
+    margin-bottom: 25px;
+    color: #555555;
+    font-weight: 400;
+    
+
+}
+
+.profile  .profile-data .profile-about ul li span {
+    color: #333333;
+    font-weight: 700;
+
+}
+.profile .profile-data .profile-about .download-cv-btn a{
+    background-color: #ff305b;
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 24px;
+    transition: background-color 0.3s ease-in-out;
+}
+.profile .profile-data .profile-about .download-cv-btn a:hover {
+    background-color: #EC2403;
+}
+
+/*end profile*/
+
+.service-section {
+    padding: 100px 0 54px;
+    background-color: #F1F1F1;
+    text-align: center;
+
+}
+.service-section .our-services .services {
+    overflow: hidden;
+}
+.service-section .our-services .services .single-service {
+    float: left;
+    text-align: center;
+    width: calc(25% - 30px) ;
+    padding: 40px 15px;
+    transition: all 0.3s  ease-in-out; /*don't forget s for seconds*/
+    
+}
+
+.service-section .our-services h2 ,.portfolio .our-portfolio h2 , .clients-feedback .inner-clients h2 , .blog .inner-blog h2,.contact-section .inner-contact h2{
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.service-section .our-services h2::before , .portfolio .our-portfolio h2::before , .clients-feedback .inner-clients h2::before ,.blog .inner-blog h2:before , .contact-section .inner-contact h2::before{
+    content: "";
+    border-color:  #ff305b;
+    border-width: 1px 0px;
+    border-style: solid;
+    padding: 4px 0 5px;
+    width: 70px;
+
+    /*to positing it exactly at the center*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+
+
+}
+.service-section .our-services h2::after , .portfolio .our-portfolio h2::after , .clients-feedback .inner-clients h2::after ,.blog .inner-blog h2:after , .contact-section .inner-contact h2::after{
+    content: "";
+    border-color:  #ff305b;
+    border-width: 0 0 1px 0;
+    /* border-bottom-width: 1px; */ /*Why not working properly?*/
+    border-style: solid;
+    height: 1px;
+    width: 160px;
+
+    /*to positing it exactly at the center*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    margin: 0 auto;
+}
+
+
+.service-section .our-services .services .single-service:hover{
+    box-shadow: 0 15px 20px rgb(0 0 0 / 10%);
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.service-section .our-services .services .single-service i {
+    color: #ff305b;
+    display: block;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+
+/* end services - start portfolio */
+.portfolio {
+    padding: 100px 0 70px;
+    text-align: center;
+    overflow: hidden; /*ask - why I had to add overflow to the main parent as it's already added to the direct parent to floated*/
+
+}
+.portfolio .our-portfolio .portfolio-menu {
+    margin-bottom: 50px;
+    
+}
+.portfolio .our-portfolio .portfolio-menu a {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 3px 12px;
+}
+
+.portfolio .our-portfolio .portfolio-images {
+    margin: auto;
+
+}
+
+.portfolio .our-portfolio .portfolio-images a  {
+    width: calc(33.33% - 20px);
+    float: left;
+    margin: 10px;
+    position: relative;
+}
+
+.portfolio .our-portfolio .portfolio-images a img {
+    width: 100%;
+}
+/* img:hover:after doesn't work! after shows under image, had to use a tag to make it work!*/
+
+
+
+.portfolio .our-portfolio .portfolio-images a::after{
+    content: "";
+    background: #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+    opacity: 0;
+
+}
+
+
+.portfolio .our-portfolio .portfolio-images a:hover::after {
+    opacity: 0.7;
+}
+
+/*end profile - start counter*/
+
+.counter-section {
+    padding: 100px 0;
+    background-color: #F1F1F1;
+}
+
+.counter-section .inner-counter{
+    overflow: hidden;
+
+}
+.counter-section .inner-counter .single-fun-facts {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.counter-section .inner-counter .single-fun-facts .facts-icon i {
+    color: #ff305b;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+.counter-section .inner-counter .single-fun-facts .single-counter h3 {
+    font-size: 26px; font-weight: 800;margin: 0 0 10px; color: #333;
+}
+
+.counter-section .inner-counter .single-fun-facts .single-counter h5 {
+    color: #555555;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 800
+}
+/* end counter - start feedback*/
+
+.clients-feedback{
+    padding: 100px 0;
+}
+.clients-feedback .inner-clients {
+    text-align: center;
+}
+
+.clients-feedback .inner-clients .testmonial-items .testimonial-item {
+    background: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 40px;
+    position: relative;
+
+}
+.clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-img {
+    border-radius: 50%;
+    float: left;
+    margin: 12px auto;
+    overflow: hidden;
+    width: 110px;
+    position: relative; /*position to add z-index only*/
+    z-index: 1;
+    
+}
+.clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-img img{
+    width: 100%;
+}
+.clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-content {
+    padding-left: 130px;
+    text-align: left;
+}
+
+.clients-feedback .inner-clients .testmonial-items .testimonial-item:after {
+    content: "";
+    border-color: #ff305b rgb(0, 0, 0, 0) rgba(0, 0, 0, 0) #ff305b;
+    border-style: solid;
+    border-width: 191px;
+    position: absolute; 
+    top: -100px;
+    left: -100px;
+  
+}
+
+.clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-content .review-reating {
+    color: #f1c30d;
+    margin-bottom: 12px;
+}
+.clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-content h4 a {
+    color: #777777;
+    font-size: 15px;
+}
+
+/*blog section*/
+
+.blog {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 100px 0 70px;
+    overflow: hidden;
+}
+
+.blog .inner-blog .blog-items .blog-item {
+    width: calc(33.33% - 10px);
+    float: left;
+    background-color: #fff;
+    margin: 0px 5px;
+}
+
+.blog .inner-blog .blog-items .blog-item .blog-content {
+    padding: 20px;
+    text-align: left;
+}
+.blog .inner-blog .blog-items .blog-item .blog-thumbnail a img {
+    width: 100%;
+}
+.blog .inner-blog .blog-items .blog-item .blog-content .post-meta{
+    margin-bottom: 10px;
+} 
+.blog .inner-blog .blog-items .blog-item .blog-content h3 a {
+    margin-bottom: 15px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: #333;
+}
+.blog .inner-blog .blog-items .blog-item .blog-content p {
+    margin: 0 0 15px;
+}
+.blog .inner-blog .blog-items .blog-item .blog-content .read-more a {
+    color: #333333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+
+
+/*custom width for blog after only*/
+.blog .inner-blog h2:after {
+    border-width: 0 0 2px 0;
+}
+
+
+/*contact - form*/
+
+.contact-section {text-align: center;padding: 100px 0;}
+
+.contact-section .inner-contact .contact-form {
+    width: 50%;
+    margin: auto;
+}
+
+.contact-section .inner-contact .contact-form form .half-width {
+    float: left;
+    width: calc(50% - 10px);
+}
+.contact-section .inner-contact .contact-form form .full-width {
+    width: calc(100% - 10px);
+}
+
+
+
+.contact-section .inner-contact .contact-form form {
+    overflow: hidden;
+}
+
+.contact-section .inner-contact .contact-form form textarea , .contact-section .inner-contact .contact-form form input {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 5px 5px;
+}
+
+.contact-section .inner-contact .contact-form form input {height: 40px;}
+.contact-section .inner-contact .contact-form form button {
+    float: left;
+    background-color: #ff305b;
+    border-color: #ff305b;
+    color: #ffffff;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 38px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin: 5px 5px;
+    transition: background-color 1s ease;
+
+}
+
+.contact-section .inner-contact .contact-form form button:hover {
+    background-color: #EC2403;
+}
+
+
+/* footer */
+.footer-section {
+    background: #333333;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-section .internal-footer .footer-social-icon ul li{
+    display: inline-block;
+}
+.footer-section .internal-footer .footer-social-icon ul li a {
+    color: #ffffff;
+    display: block;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 10px;
+}
+
+
+.footer-section .internal-footer .copyright a{
+    color: #ff305b;
+}
+/* media query */
+
+
+
+
+
+
+@media all and (min-width: 1200px){
+    .container {
+        width: 1170px;
+    }
+
+   
+     .profile { max-width: 60%; } 
+
+    .fa-solid.fa-bars{
+        display: none;
+    }
+    
+    .testmonial-items {
+        margin: auto;
+        width: 60%;
+    }
+    
+
+}
+
+@media all and (min-width:992px) and (max-width: 1199px) {
+    .container {
+        width: 970px;
+    }
+
+
+    .fa-solid.fa-bars{
+        display: none;
+    }
+
+
+}
+
+@media all and (min-width:768px) and (max-width: 991px) {
+
+    .container {
+        width: 750px;
+    }
+
+
+    .navbar-items {
+        display: none;
+    }
+
+    
+    .fa-solid.fa-bars {
+        font-size: 20px;
+        color: white;
+        float: right;
+        padding: 9px;
+    }
+
+    .profile .profile-image-section {
+        max-width: calc (100% - 40px);
+        padding: 20px;
+        box-shadow: unset;
+    }
+
+    .profile .profile-image-section .profile-image {
+        transform: unset;
+    }
+    
+    
+    .profile .profile-data {
+        max-width: calc (100% - 40px);
+        padding: 20px;
+
+    }
+
+    .profile {padding: 20px 10px 20px;}
+    .profile .profile-image-section {width: 100% !important;}
+    .service-section .our-services .services .single-service { width: calc(100% - 40px); }
+    .service-section .our-services .services .single-service:hover {
+        box-shadow: unset;
+        border-radius: unset;
+        background-color: unset;
+    }
+
+    .portfolio .our-portfolio .portfolio-images a  {width: calc(100% - 20px); }
+
+    .counter-section .inner-counter .single-fun-facts {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .counter-section {
+        padding: 60px 0 30px;
+    }
+    .clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-img {
+        width: 100%;
+    }
+    .clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-img img {
+        width: 110px;
+        border-radius: 50%;
+    }
+    .clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-content {
+        padding-left: 0;
+        text-align: left;
+    }
+    .blog .inner-blog .blog-items .blog-item {
+        width: 100%;
+        margin: 0 0 5px 0;
+    }
+
+    .contact-section .inner-contact .contact-form { width: 100%; }
+    .contact-section .inner-contact .contact-form form .half-width {width: calc(100% - 10px);}
+    .footer-section {padding: 35px 0;}
+}
+
+    @media all and (max-width: 767px){
+
+        .navbar-items {
+            display: none;
+        }
+
+        .fa-solid.fa-bars {
+            font-size: 20px;
+            color: white;
+            float: right;
+            padding: 9px;
+        }
+
+        .profile .profile-image-section {
+            max-width: calc(100% - 40px);
+            padding: 20px;
+            box-shadow: unset;
+        }
+
+        .profile .profile-image-section .profile-image {
+            transform: unset;
+        }
+        
+        
+        .profile .profile-data {
+            max-width: calc(100% - 40px);
+            padding: 20px;
+
+        }
+        .profile {padding: 20px 10px 20px;}
+        .profile .profile-image-section {width: 100% !important;}
+        .service-section .our-services .services .single-service { width: calc(100% - 40px); }
+
+        .service-section .our-services .services .single-service:hover {
+            box-shadow: unset;
+            border-radius: unset;
+            background-color: unset;
+        }
+        .portfolio .our-portfolio .portfolio-images a  {width: calc(100% - 20px); }
+
+        .counter-section .inner-counter .single-fun-facts {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .counter-section {
+            padding: 60px 0 30px;
+        }
+
+        .clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-img {
+            width: 100%;
+        }
+        .clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-img img {
+            width: 110px;
+            border-radius: 50%;
+        }
+        .clients-feedback .inner-clients .testmonial-items .testimonial-item .testimonial-content {
+            padding-left: 0;
+            text-align: left;
+        }
+        .blog .inner-blog .blog-items .blog-item {
+            width: 100%;
+            margin: 0 0 5px 0;
+        }
+
+        .contact-section .inner-contact .contact-form { width: 100%; }
+        .contact-section .inner-contact .contact-form form .half-width {width: calc(100% - 10px);}
+        .footer-section {padding: 35px 0;}
+
+}
+
+
+
+
+
+
+ul {
+   
+    margin-block-start: unset;
+    margin-block-end: unset;
+    padding-inline-start: unset;
+}
+
